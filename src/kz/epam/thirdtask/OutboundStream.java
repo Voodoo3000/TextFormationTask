@@ -7,11 +7,13 @@ import java.io.*;
  */
 public class OutboundStream {
 
-    public void txtWriter (String s, String OUTPUT_FILE) {
-        FileWriter fileWriter = null;
+    private static final String OUTPUT_TXTFILE = "textresult.txt";
+
+    public void txtWriter (String text) {
+        FileOutputStream fileOutputStream = null;
         try {
-            fileWriter = new FileWriter(OUTPUT_FILE, true);
-            fileWriter.write(s);
+            fileOutputStream = new FileOutputStream(OUTPUT_TXTFILE, true);
+            fileOutputStream.write(text.getBytes());
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -21,11 +23,12 @@ public class OutboundStream {
 
         finally {
             try {
-                fileWriter.close();
+                fileOutputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
 
 }

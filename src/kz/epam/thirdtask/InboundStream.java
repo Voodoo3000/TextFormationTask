@@ -9,21 +9,23 @@ import java.io.InputStreamReader;
  */
 public class InboundStream {
 
-    public String txtReader(String INPUT_FILE) {
+    private static final String INPUT_TXTFILE = "textin.txt";
+
+    public String txtReader() {
 
         int b = 0;
-        String text = "";
-        
+        String txt = "";
+
         try {
-            FileInputStream fis = new FileInputStream(INPUT_FILE);
-            InputStreamReader isr = new InputStreamReader(fis, "cp1251");
+            FileInputStream fis = new FileInputStream(INPUT_TXTFILE);
+            InputStreamReader isr = new InputStreamReader(fis);
             while ((b = isr.read()) != -1){
-                text += (char) b;
+                txt += (char) b;
             }
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-        return text;
+        return txt;
     }
 }
