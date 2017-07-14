@@ -12,9 +12,12 @@ public class Runner {
 
         String text = new InboundStream().txtReader();
 
-        String[] paragraphs = splitter.splitToParagraphs(text);
+        //String[] paragraphs = splitter.splitToParagraphs(text);
 
-        List<String> allSentences = new ArrayList<>();
+        Paragraph paragraph = new Paragraph(splitter.splitToParagraphs(text));
+
+        Sentence sentence = new Sentence(splitter.splitToSentences(paragraph.getParagraphs()));
+       /* List<String> allSentences = new ArrayList<>();
         for (String paragraph : paragraphs) {
             String[] sentences = splitter.splitToSentences(paragraph);
             allSentences.addAll(Arrays.asList(sentences));
@@ -26,14 +29,14 @@ public class Runner {
             allWords.addAll(Arrays.asList(words));
         }
 
-        List<Character> allSymbols = new ArrayList<>();
+        char allSymbols;
         for (String word : allWords) {
             char symbol = splitter.splitToSymbols(word);
             allSymbols.addAll(Arrays.asList(symbol));
         }
-
+        */
         StringBuilder builder = new StringBuilder();
-        for (String textresult : paragraphs) {
+        for (String textresult : sentence.getListOfSentences()) {
             builder.append(textresult);
         }
 
