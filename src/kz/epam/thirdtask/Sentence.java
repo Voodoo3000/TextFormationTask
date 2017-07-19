@@ -4,18 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Voodoo3000 on 13.07.2017.
+ * Created by Voodoo3000 on 18.07.2017.
  */
 public class Sentence {
 
-    private List<String> listOfSentences = new ArrayList<>();
+    private List<Word> words = new ArrayList<>();
 
-    public Sentence(List<String> sentences){
-            this.listOfSentences=sentences;
-    }
-
-    public List<String> getListOfSentences() {
-        return listOfSentences;
+    public Sentence(String stringOfSentences) {
+        for (String stringOfWord: Splitter.splitToWords(stringOfSentences)) {
+            Word word = new Word(stringOfWord);
+            words.add(word);
+        }
     }
 
 }

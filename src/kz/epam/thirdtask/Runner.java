@@ -1,22 +1,17 @@
 package kz.epam.thirdtask;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Runner {
 
     public static void main(String[] args) {
-        Splitter splitter = new Splitter();
 
-        String text = new InboundStream().txtReader();
+        String initializedText = new InboundStream().txtReader();
 
         //String[] paragraphs = splitter.splitToParagraphs(text);
 
-        Paragraph paragraph = new Paragraph(splitter.splitToParagraphs(text));
+        Text text = new Text(initializedText);
 
-        Sentence sentence = new Sentence(splitter.splitToSentences(paragraph.getParagraphs()));
+       // Paragraph sentence = new Paragraph(splitter.splitToSentences(paragraph.getParagraphs()));
        /* List<String> allSentences = new ArrayList<>();
         for (String paragraph : paragraphs) {
             String[] sentences = splitter.splitToSentences(paragraph);
@@ -34,12 +29,12 @@ public class Runner {
             char symbol = splitter.splitToSymbols(word);
             allSymbols.addAll(Arrays.asList(symbol));
         }
-        */
+
         StringBuilder builder = new StringBuilder();
-        for (String textresult : sentence.getListOfSentences()) {
+        for (String textresult : text.toString()) {
             builder.append(textresult);
         }
-
-        new OutboundStream().txtWriter(builder.toString());
+*/
+        new OutboundStream().txtWriter(text.toString());
     }
 }
