@@ -20,13 +20,13 @@ public class Paragraph {
     public List<Sentence> getListOfSentences() {
         return sentences;
     }
-/*
+
     @Override
     public String toString() {
         String string = "";
-        for (Sentence s: listOfSentences) {
+        for (Sentence s: sentences) {
             string += s;
         }
         return string;
-    }*/
+    }
 }
