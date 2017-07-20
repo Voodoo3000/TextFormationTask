@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 public class InboundStream {
 
     private static final String INPUT_TXTFILE = "textin.txt";
+    private static final String TXTFILE_UNICODE = "UTF-8";
 
     public String txtReader() {
 
@@ -18,12 +19,11 @@ public class InboundStream {
 
         try {
             FileInputStream fis = new FileInputStream(INPUT_TXTFILE);
-            InputStreamReader isr = new InputStreamReader(fis);
-            while ((b = isr.read()) != -1){
+            InputStreamReader isr = new InputStreamReader(fis, TXTFILE_UNICODE);
+            while ((b = isr.read()) != -1) {
                 txt += (char) b;
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return txt;
