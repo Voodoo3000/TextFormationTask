@@ -7,6 +7,7 @@ import java.util.List;
  * Created by Voodoo3000 on 13.07.2017.
  */
 public class Text {
+
     private List<Paragraph> paragraphs = new ArrayList<>();
 
     public Text(String initializedText) {
@@ -17,17 +18,14 @@ public class Text {
         }
     }
 
-    public List<Paragraph> getParagraphs() {
-        return paragraphs;
-    }
-
     @Override
     public String toString() {
         String string = "";
+        StringBuilder builder = new StringBuilder();
         for (Paragraph p : paragraphs) {
-            string += p;
+            builder.append(p);
         }
-        return string;
+        return builder.toString();
     }
 
 }

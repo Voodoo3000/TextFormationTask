@@ -9,7 +9,7 @@ public class OutboundStream {
 
     private static final String OUTPUT_TXTFILE = "textresult.txt";
 
-    public void txtWriter (String text) {
+    public void txtWriter(String text) {
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = new FileOutputStream(OUTPUT_TXTFILE, true);
@@ -19,9 +19,7 @@ public class OutboundStream {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-        finally {
+        } finally {
             try {
                 fileOutputStream.close();
             } catch (IOException e) {

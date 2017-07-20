@@ -8,7 +8,6 @@ public class Splitter {
     private static final String PARAGRAPH_SPLITTER = "(?=(\\n|\\r))";
     private static final String SENTENCE_SPLITTER = "(?<=(\\.|!|\\?))";
     private static final String WORD_SPLITTER = "(?<=(\\s|,|!|\\?|\\.|;|:|'|\")\\s*)";
-    private static final String SYMBOL_SPLITTER = "\\r|\\n|.{1}";
 
     public static String[] splitToParagraphs(String txt) {
 
@@ -24,11 +23,4 @@ public class Splitter {
 
         return stringOfSentences.split(WORD_SPLITTER);
     }
-
-    public static char splitToSymbols(String word) {
-        return  word.charAt(0);
-    }
-
-
-
 }

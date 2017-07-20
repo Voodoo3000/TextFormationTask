@@ -10,23 +10,20 @@ public class Paragraph {
 
     private List<Sentence> sentences = new ArrayList<>();
 
-    public Paragraph(String stringOfParagraph){
-        for (String stringOfSentences: Splitter.splitToSentences(stringOfParagraph)) {
+    public Paragraph(String stringOfParagraph) {
+        for (String stringOfSentences : Splitter.splitToSentences(stringOfParagraph)) {
             Sentence sentence = new Sentence(stringOfSentences);
             sentences.add(sentence);
         }
     }
 
-    public List<Sentence> getListOfSentences() {
-        return sentences;
-    }
-
     @Override
     public String toString() {
         String string = "";
-        for (Sentence s: sentences) {
-            string += s;
+        StringBuilder builder = new StringBuilder();
+        for (Sentence s : sentences) {
+            builder.append(s);
         }
-        return string;
+        return builder.toString();
     }
 }

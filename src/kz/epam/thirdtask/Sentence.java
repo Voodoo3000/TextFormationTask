@@ -11,10 +11,18 @@ public class Sentence {
     private List<Word> words = new ArrayList<>();
 
     public Sentence(String stringOfSentences) {
-        for (String stringOfWord: Splitter.splitToWords(stringOfSentences)) {
+        for (String stringOfWord : Splitter.splitToWords(stringOfSentences)) {
             Word word = new Word(stringOfWord);
             words.add(word);
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (Word w : words) {
+            builder.append(w);
+        }
+        return builder.toString();
+    }
 }

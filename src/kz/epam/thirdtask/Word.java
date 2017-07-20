@@ -11,18 +11,18 @@ public class Word {
     private List<Symbol> symbols = new ArrayList<>();
 
     public Word(String stringOfWord) {
-        for (char charOfSymbol: stringOfWord.toCharArray()) {
+        for (char charOfSymbol : stringOfWord.toCharArray()) {
             Symbol symbol = new Symbol(charOfSymbol);
             symbols.add(symbol);
         }
-
     }
+
     @Override
     public String toString() {
-        String string = "";
+        StringBuilder builder = new StringBuilder();
         for (Symbol s : symbols) {
-            string += s.toString();
+            builder.append(s);
         }
-        return string;
+        return builder.toString();
     }
 }
